@@ -1,38 +1,17 @@
 version: 0.2
 
-env:
-  variables:
-    CLUSTER_NAME: "Brain-cluster"
-    REGION: "ap-south-1"
-
 phases:
   install:
     commands:
-      - echo "Installing kubectl and aws-iam-authenticator"
-      - curl -o kubectl https://amazon-eks.s3.amazonaws.com/1.29.0/2024-01-04/bin/linux/amd64/kubectl
-      - chmod +x kubectl
-      - mv kubectl /usr/local/bin/
+      - echo "Build phase not deploying. Only preparing artifacts."
 
-  pre_build:
-    commands:
-      - echo "Checking IAM identity"
-      - aws sts get-caller-identity
-      - echo "Configuring kubeconfig"
-      - aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
-
+phases:
   build:
     commands:
-      - echo "Applying Kubernetes manifests"
-      - kubectl apply -f deployment.yaml --validate=false
-      - kubectl apply -f service.yaml --validate=false
-
-  post_build:
-    commands:
-      - echo "Deployment Completed"
-      - kubectl get pods
-      - kubectl get svc
+      - echo "Preparing Kubernetes manifests for Lambda deployment"
 
 artifacts:
   files:
     - deployment.yaml
     - service.yaml
+  discard-paths: yes
