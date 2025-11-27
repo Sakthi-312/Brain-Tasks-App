@@ -70,12 +70,12 @@ Check LoadBalancer:
 
 6. Push Code to GitHub
 
-    git add .
-    git commit -m "Initial CI/CD setup"
-    git remote set-url origin https://<username>:<token>@github.com/<username>/Brain-Tasks-App.git
-    git push origin main
+        git add .
+        git commit -m "Initial CI/CD setup"
+        git remote set-url origin https://<username>:<token>@github.com/<username>/Brain-Tasks-App.git
+        git push origin main
 
-7. Create CodeBuild Project
+8. Create CodeBuild Project
 
 1. Source: GitHub
 2. Environment: Ubuntu / Amazon Linux
