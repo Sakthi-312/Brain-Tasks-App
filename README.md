@@ -75,32 +75,32 @@ Check LoadBalancer:
         git remote set-url origin https://<username>:<token>@github.com/<username>/Brain-Tasks-App.git
         git push origin main
 
-8. Create CodeBuild Project
+7. Create CodeBuild Project
 
-1. Source: GitHub
-2. Environment: Ubuntu / Amazon Linux
-3. IAM role: allow S3 + ECR + CloudWatch
-4. Add buildspec.yml:
+    1. Source: GitHub
+    2. Environment: Ubuntu / Amazon Linux
+    3. IAM role: allow S3 + ECR + CloudWatch
+    4. Add buildspec.yml:
 
-    version: 0.2
-    
-    phases:
-      install:
-        commands:
-          - echo "Build step running"
-    
-    artifacts:
-      files:
-        - '**/*'
+            version: 0.2
+            
+            phases:
+              install:
+                commands:
+                  - echo "Build step running"
+            
+            artifacts:
+              files:
+                - '**/*'
 
 8. Create CodePipeline
 
-Stages:
-  1. Source – GitHub
-  2. Build – CodeBuild
-  3. Deploy – Lambda (Custom Action)
+    Stages:
+      1. Source – GitHub
+      2. Build – CodeBuild
+      3. Deploy – Lambda (Custom Action)
 
-9. Lambda Deploy to EKS
+10. Lambda Deploy to EKS
 
 Lambda responsibilities:
 
@@ -131,12 +131,12 @@ Required IAM Permissions:
 
 11. Monitoring
 
-Use AWS CloudWatch for:
-
-  1. CodeBuild logs
-  2. CodePipeline execution logs
-  3. Lambda execution logs
-  4. EKS pod & service logs
+    Use AWS CloudWatch for:
+    
+      1. CodeBuild logs
+      2. CodePipeline execution logs
+      3. Lambda execution logs
+      4. EKS pod & service logs
 
 12. Cleanup (Optional)
 
