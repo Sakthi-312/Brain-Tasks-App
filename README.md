@@ -112,9 +112,9 @@ Lambda responsibilities:
 
 Required IAM Permissions:
 
-  1. EKS access
-  2. S3 read permissions
-  3. CodePipeline success callback
+    1. EKS access
+    2. S3 read permissions
+    3. CodePipeline success callback
 
 10. Fix RBAC (If Required)
 
