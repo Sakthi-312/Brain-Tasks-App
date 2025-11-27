@@ -5,11 +5,9 @@ Docker → ECR → EKS → CodePipeline → Lambda → kubectl.
 
 1. Install Required Tools
 
-Install Git
-
-Install Docker
-
-Install AWS CLI
+    . Install Git
+    . Install Docker
+    . Install AWS CLI
 
 Fork & clone repository:
 
